@@ -1,1 +1,10 @@
-# Arduino_Basic_Projects
+# Description
+    Basic projects related to Arduino microcontroller.
+
+# Software
+    - Arduino IDE
+    - Proteus
+    
+# Source: 
+    - Blink: 
+        + Version 1: blink led using delay function.  
