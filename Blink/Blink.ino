@@ -1,27 +1,29 @@
-int ledPin = 13;
-int ledState = LOW;
+#include <TimeOut.h>
 
-unsigned long previousMillis = 0;
-const long interval = 500;
+int led = 13;
+
+TimeOut timeout0;
 
 
 
 void setup() 
 {
-  pinMode(ledPin, OUTPUT);
+  // put your setup code here, to run once:
+  pinMode(led, OUTPUT);
+  timeout0.timeOut(500, Blink);
 }
 
 
 
-void loop() 
+void Blink() 
 {
-  unsigned long currentMillis = millis();
-  
-  if (currentMillis - previousMillis >= interval) 
-  {
-    previousMillis = currentMillis;
-    
-    ledState = !ledState;   
-    digitalWrite(ledPin, ledState);
-  }
+  digitalWrite(led, !digitalRead(led)); // toggle the LED
+  timeout0.timeOut(500, Blink);
+}
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  timeout0.handler();
 }

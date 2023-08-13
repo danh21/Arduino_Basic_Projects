@@ -8,7 +8,8 @@
 # Source: 
     - Blink: 
         + Version 1: blink led using delay function.
-        + Version 2: blink led using timer. 
+        + Version 2: blink led using millis function.
+        + Version 3: blink led using timeout library.
 
     - Toggle:
         + Version 1: use button to toggle led, using polling method.
