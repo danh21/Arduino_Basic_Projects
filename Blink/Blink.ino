@@ -1,27 +1,27 @@
-#define led1 13
+int ledPin = 13;
+int ledState = LOW;
+
+unsigned long previousMillis = 0;
+const long interval = 500;
 
 
 
 void setup() 
 {
-  // put your setup code here, to run once:
-  pinMode(led1, OUTPUT);
-}
-
-
-
-void Blink(int led, int ms) 
-{
-  digitalWrite(led, HIGH);    // turn the LED on (HIGH is the voltage level)
-  delay(ms);                  // wait for a ms
-  digitalWrite(led, LOW);     // turn the LED off by making the voltage LOW
-  delay(ms);                  // wait for a ms
+  pinMode(ledPin, OUTPUT);
 }
 
 
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
-  Blink(led1, 500);
+  unsigned long currentMillis = millis();
+  
+  if (currentMillis - previousMillis >= interval) 
+  {
+    previousMillis = currentMillis;
+    
+    ledState = !ledState;   
+    digitalWrite(ledPin, ledState);
+  }
 }
